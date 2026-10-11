@@ -1,0 +1,48 @@
+{
+  "environment": {
+    "astrbot_version": "4.28.2",
+    "installation": "isolated editable local plugin installation",
+    "chat_model": "gpt-4.1-mini through the generic OpenAI-compatible source",
+    "marketplace_installation": "not tested; AstrBot Cloud listing pending"
+  },
+  "primary_case": {
+    "model": "doubao-seedance-2-0-mini-260615",
+    "duration_requested_seconds": 4,
+    "resolution_requested": "480p",
+    "ratio_requested": "16:9",
+    "generation_tool": "seedance_generate_video",
+    "generation_tool_calls_for_this_task": 1,
+    "lookup_tool": "seedance_get_task",
+    "lookup_tool_calls_in_chat": 1,
+    "task_id": "d0c5bf6e-8108-446a-b910-faa2a197ef6e",
+    "trace_id": "1ce64b14-f2a9-4a38-8c44-5f754376f5b8",
+    "terminal_status": "succeeded",
+    "video_url": "https://platform2.cdn.acedata.cloud/seedance/d0c5bf6e-8108-446a-b910-faa2a197ef6e.mp4",
+    "media_http_status": 200,
+    "media_content_type": "video/mp4",
+    "media_codec": "h264",
+    "media_width": 864,
+    "media_height": 496,
+    "media_duration_seconds": 4.041667,
+    "usage_api_path": "/seedance/videos",
+    "usage_status_code": 200,
+    "cost_rule_credits_before_discount": 1.56,
+    "usage_deducted_credits": 1.404
+  },
+  "earlier_attempts": [
+    {
+      "result": "local API connection failed before a task ID was returned",
+      "billing_boundary": "No matching Seedance usage was observed for the test application and time window; absence of a log row is not proof of delivery state"
+    },
+    {
+      "model": "doubao-seedance-1-0-lite-t2v-250428",
+      "task_id": "b6a84e60-cd18-4eec-86b8-f59028a9f05d",
+      "trace_id": "b729db7c-7c31-4ba6-bcf4-83fa43eaea53",
+      "terminal_status": "failed",
+      "usage_status_code": 400,
+      "usage_deducted_credits": 0,
+      "reason": "The production route reported model is not supported. The model was removed from this plugin's allowlist."
+    }
+  ],
+  "scope_limit": "Text-to-video and same-task lookup were run through AstrBot chat. One-image input and other supported models were validated structurally but not generated. Official market installation remains open."
+}
