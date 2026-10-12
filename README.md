@@ -2,7 +2,7 @@
 
 Submit one Seedance text or image video job in an AstrBot conversation, then query that same task for its final video URL through your own Ace Data Cloud account. The tools are `seedance_generate_video` and `seedance_get_task`.
 
-[简体中文指南](readme/README_zh_Hans.md) · [Seedance Videos API](https://platform.acedata.cloud/documents/seedance-videos) · [Seedance Tasks API](https://platform.acedata.cloud/documents/seedance-tasks) · [Current prices](https://platform.acedata.cloud/models)
+[简体中文指南](readme/README_zh_Hans.md) · [Seedance Videos API](https://platform.acedata.cloud/documents/seedance-videos?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=seedanceastrbot_readme_documents_seedance_videos) · [Seedance Tasks API](https://platform.acedata.cloud/documents/seedance-tasks?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=seedanceastrbot_readme_documents_seedance_tasks) · [Current prices](https://platform.acedata.cloud/models?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=seedanceastrbot_readme_pricing)
 
 ## Find and install
 
@@ -12,7 +12,9 @@ The official AstrBot Cloud listing has not yet been published. After the source 
 
 ## Configure your key
 
-In [Ace Data Cloud Applications](https://platform.acedata.cloud/console/applications), copy a generation API key from your General application or create a key that permits both `/seedance/videos` and `/seedance/tasks`. Check the current price for the selected model, resolution, and duration before submitting a video. Paste the key into the plugin's **Ace Data Cloud generation API key with Seedance access** setting. Do not add `Bearer ` or use a `platform-...` management token. AstrBot masks the field in WebUI but stores the original value in its data directory, which should be protected.
+New account? Register and sign in first. If the Applications page has no General application yet, choose **Initialize General Application**, then continue with the key steps below.
+
+In [Ace Data Cloud Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=seedanceastrbot_readme_api_key), copy a generation API key from your General application or create a key that permits both `/seedance/videos` and `/seedance/tasks`. Check the current price for the selected model, resolution, and duration before submitting a video. Paste the key into the plugin's **Ace Data Cloud generation API key with Seedance access** setting. Do not add `Bearer ` or use a `platform-...` management token. AstrBot masks the field in WebUI but stores the original value in its data directory, which should be protected.
 
 Select a chat model that supports tool calling. Allow both Seedance tools in the conversation's profile and persona.
 
