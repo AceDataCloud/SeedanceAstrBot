@@ -2,21 +2,54 @@
 
 Submit one Seedance text or image video job in an AstrBot conversation, then query that same task for its final video URL through your own Ace Data Cloud account. The tools are `seedance_generate_video` and `seedance_get_task`.
 
+**This PR targets 0.1.1** with native help/admin lookup commands, bilingual configuration and illustrated setup. Existing 0.1.0 installations do not gain these entries until the source is merged and the package is published/updated.
+
+This independent **Seedance integration is provided by Ace Data Cloud**. It is not an official plugin from the Seedance publisher or the AstrBot team. Use your own Ace account and API key.
+
 [简体中文指南](readme/README_zh_Hans.md) · [Seedance Videos API](https://platform.acedata.cloud/documents/seedance-videos?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=seedanceastrbot_readme_documents_seedance_videos) · [Seedance Tasks API](https://platform.acedata.cloud/documents/seedance-tasks?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=seedanceastrbot_readme_documents_seedance_tasks) · [Current prices](https://platform.acedata.cloud/models?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=seedanceastrbot_readme_pricing)
 
 ## Find and install
 
-In AstrBot WebUI, open **Extensions → Plugins → AstrBot Plugin Market** and search **Seedance**. Confirm the card says **Seedance by Ace Data Cloud**, the author is **acedatacloud**, and the logo matches the [Seedance service icon](https://cdn.acedata.cloud/9q90dl.png). Install it, then check **Installed** for load errors.
+Current upstream navigation (2026-10-18): **Plugins → Plugins → Plugin Market / Installed**. The earlier tested 4.28.2 English UI may label the section Extensions. Configure this service in the installed plugin gear; **do not paste its key into model-provider settings**.
 
-The official AstrBot Cloud listing has not yet been published. After the source release is merged, **Installed → Install (+) → Install from URL** with `https://github.com/AceDataCloud/SeedanceAstrBot` can preview it. A URL installation is not an official market installation.
+**Publication status (2026-10-18): not yet listed in the official market.** After publication, open [AstrBot Cloud Plugin Market](https://cloud.astrbot.app/market), search **Seedance**, and verify **Seedance by Ace Data Cloud / acedatacloud**. For the current preview, use the repository URL below; a repository install is not official market publication.
+
+The official AstrBot Cloud listing has not yet been published. The source release is merged; **Plugins → Plugins → Installed → Install Plugin (+) → Install from URL** with `https://github.com/AceDataCloud/SeedanceAstrBot` can preview it. A URL installation is not an official market installation.
 
 ## Configure your key
 
-New account? Register and sign in first. If the Applications page has no General application yet, choose **Initialize General Application**, then continue with the key steps below.
+[Register or sign in to Ace](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=seedanceastrbot_readme_signup) first. Initialize **General application** if it does not exist. The following images show the shared Ace Applications page, not AstrBot.
 
 In [Ace Data Cloud Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=seedanceastrbot_readme_api_key), copy a generation API key from your General application or create a key that permits both `/seedance/videos` and `/seedance/tasks`. Check the current price for the selected model, resolution, and duration before submitting a video. Paste the key into the plugin's **Ace Data Cloud generation API key with Seedance access** setting. Do not add `Bearer ` or use a `platform-...` management token. AstrBot masks the field in WebUI but stores the original value in its data directory, which should be protected.
 
-Select a chat model that supports tool calling. Allow both Seedance tools in the conversation's profile and persona.
+For Agent-tool use, select a chat model that supports tool calling. Allow both Seedance tools in the conversation's profile and persona.
+
+1. Open **General application**. Use **1** to copy the existing key, or **2 Manage Keys → Create** for a dedicated key.
+
+![Copy an Ace key or open Manage Keys (redacted)](_assets/tutorial/get-api-key-en.png)
+
+2. Use a name such as `AstrBot Seedance`. Set expiry/limits as needed and allow both `/seedance/videos` and `/seedance/tasks`. The screenshot’s Dify tutorial name is an older example.
+
+![Create an optional dedicated key (shared Ace page, not AstrBot)](_assets/tutorial/create-api-key-en.png)
+
+Images reused and checked on 2026-10-18; original capture dates were not supplied. Credentials and balance are redacted. [Sources and version limits](_assets/tutorial/sources.json).
+
+### Where to paste it in AstrBot
+
+Open **Plugins → Plugins → Installed**, select the gear on **Seedance by Ace Data Cloud**, paste the key into **Ace Data Cloud generation API key with Seedance access** (stored as `api_key`), and save. No `Bearer ` prefix; never paste the key in chat.
+
+![AstrBot official historical plugin configuration reference, not this plugin running](_assets/tutorial/astrbot-plugin-config-reference.png)
+
+This is the official AstrBot `helloworld` configuration example, labelled v3.4.14 (build v3.4.9), not an Ace setup or run. The instructions above identify this plugin’s exact field and current navigation; later UI layouts may differ.
+
+## Native commands without a chat model
+
+| Input | Result |
+| --- | --- |
+| `/seedance_ace` | Show service, Token setup and lookup help; no external API call. |
+| `/seedance_ace_task <task_id>` | AstrBot administrators only: retrieve one existing task, with status/final media; no LLM or generation. |
+
+Commands use the default `/` prefix; adapt it if your instance uses another wake prefix. AstrBot enforces administrator identity. The instance shares this plugin key, so direct lookup is administrator-only; other users use Agent tools allowed by their profile/persona. For `pending`, query the same ID later; for `failed`, inspect the original task/trace.
 
 ## Generate once, then query
 

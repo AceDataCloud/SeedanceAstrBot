@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "display_name": "Seedance by Ace Data Cloud",
+    "short_desc": "Seedance text/image video generation and same-task retrieval through Ace Data Cloud.",
+    "desc": "Seedance text/image video generation and same-task retrieval through Ace Data Cloud. Configure your own Ace API key. /seedance_ace shows help; administrators use /seedance_ace_task for an existing task. This integration is provided by Ace Data Cloud."
+  },
+  "config": {
+    "api_key": {
+      "description": "Ace Data Cloud API Key for Seedance",
+      "hint": "Copy/create a dedicated key in Ace Applications → General application → Manage Keys. Allow /seedance/videos and /seedance/tasks. No Bearer prefix; never paste into chat. Masking does not encrypt the data directory."
+    }
+  }
+}
