@@ -74,6 +74,10 @@ An optional authorized HTTPS `image_url` can serve as `first_frame` or `referenc
 
 ## Verify and troubleshoot
 
+### Cancelled tasks and interrupted waiting
+
+An explicit failed/cancelled/rejected task is terminal: the plugin returns `status: failed`, `success: false` and no media, even if `finished_at` is still empty. It does not resubmit. Cancelling a local chat/command stops waiting locally; it does **not** cancel an upstream generation, and an already-started HTTP request may still finish. Inspect the original task/history and keep the same ID; there is no upstream-cancel command in this plugin.
+
 In Ace Data Cloud usage, match a returned trace ID if present. If it is absent, API and time only correlate with a usage row. A task lookup retrieves the existing job; it does not submit another generation.
 
 | Symptom | Check |
@@ -92,3 +96,21 @@ The key goes only to `https://api.acedata.cloud`; redirects are rejected. The pl
 On official AstrBot `v4.28.2`, an isolated editable installation registered both tools. ChatUI submitted one supported `doubao-seedance-2-0-mini-260615` text video at 480p and four seconds, and later queried the same task ID through `seedance_get_task` without another generation. The terminal HTTPS MP4 responded HTTP 200, `video/mp4`; `ffprobe` decoded H.264 at 864×496 and 4.042 seconds. The exact generation trace matched a successful `/seedance/videos` usage row with 1.404 Credits deducted; the current cost rule computes 1.56 Credits before the account discount. See the [sanitized evidence](tests/e2e-results.json). This is a local editable installation; official Cloud review, market installation, and a first call from a market installation remain open.
 
 `logo.png` is the unmodified 200×200 [current Seedance service icon](https://cdn.acedata.cloud/9q90dl.png), SHA-256 `6a5b07c1d33d2910eb9fe1c8549874a004d13a0e75d9b30a7cfdc255c586a83d`.
+
+## Reproduce the no-cost host check
+
+From this repository in an isolated Python 3.12 environment:
+
+```bash
+uv venv --python 3.12 .venv-host
+uv pip install --python .venv-host/bin/python astrbot==4.29.0
+.venv-host/bin/python scripts/verify_host.py
+```
+
+The check needs no API Key and starts no server. It imports real AstrBot
+decorators, registers both commands/two tools, checks admin/non-admin access,
+masked-key schema, missing-Key handling and cancellation propagation with
+socket access blocked. Fake events and mocked cancellation do not establish
+a full message-dispatcher, market install, live generation, task ownership,
+new billing or signup/conversion result. Use normal `python -m pytest -q`
+for transport and command regression tests.
