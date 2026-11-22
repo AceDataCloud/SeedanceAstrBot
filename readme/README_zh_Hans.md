@@ -6,7 +6,7 @@
 
 这是 **Ace Data Cloud 提供的 Seedance 独立集成**，不是 Seedance 厂商或 AstrBot 团队的官方插件。使用自己的 Ace 账号和 API Key；不要填写其他平台的密钥。
 
-[English guide](../README.md) · [Seedance 视频 API](https://platform.acedata.cloud/documents/seedance-videos?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=seedanceastrbot_readme_documents_seedance_videos) · [Seedance 任务 API](https://platform.acedata.cloud/documents/seedance-tasks?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=seedanceastrbot_readme_documents_seedance_tasks) · [当前价格](https://platform.acedata.cloud/models?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=seedanceastrbot_readme_pricing)
+[English guide](../README.md) · [Seedance 视频 API](https://platform.acedata.cloud/documents/seedance-videos?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen) · [Seedance 任务 API](https://platform.acedata.cloud/documents/seedance-tasks?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen) · [当前价格](https://platform.acedata.cloud/models?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen)
 
 ## 搜索与安装
 
@@ -18,9 +18,9 @@ AstrBot Cloud 官方上架尚未完成。源码已合并，可在 **Plugins → 
 
 ## 配置 Key
 
-先[注册或登录 Ace](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=seedanceastrbot_readme_signup)；首次没有通用应用时，先初始化 **General application**。下图取自同一 Ace 应用管理页面，不是 AstrBot 界面。
+先[注册或登录 Ace](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen)；首次没有通用应用时，先初始化 **General application**。下图取自同一 Ace 应用管理页面，不是 AstrBot 界面。
 
-到 [Ace Data Cloud Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=seedanceastrbot_readme_api_key) 复制 General application 的生成 API Key，或创建同时允许 `/seedance/videos` 和 `/seedance/tasks` 的 Key。提交视频前，检查所选模型、分辨率和时长的当前价格。在插件设置 **Ace Data Cloud generation API key with Seedance access** 中粘贴 Key 本身；不要加 `Bearer `，也不要使用 `platform-...` 管理 Token。AstrBot WebUI 会遮蔽字段，但数据目录会保存原值，请保护该目录。
+到 [Ace Data Cloud Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen) 复制 General application 的生成 API Key，或创建同时允许 `/seedance/videos` 和 `/seedance/tasks` 的 Key。提交视频前，检查所选模型、分辨率和时长的当前价格。在插件设置 **Ace Data Cloud generation API key with Seedance access** 中粘贴 Key 本身；不要加 `Bearer `，也不要使用 `platform-...` 管理 Token。AstrBot WebUI 会遮蔽字段，但数据目录会保存原值，请保护该目录。
 
 使用 Agent 工具时，选择支持工具调用的聊天模型，在当前 Profile 和 Persona 中允许两个 Seedance 工具。
 
