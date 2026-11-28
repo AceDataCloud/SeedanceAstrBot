@@ -1,10 +1,10 @@
 <!-- Generated from readme/README_zh_Hans.md by AceDataCloud/Index plans/plugin-readme-audit/render_channel_readmes.py. -->
 
-# AstrBot 的 Seedance 插件
+# Seedance
+
+<img src="../logo.png" width="96" height="96" alt="Seedance">
 
 通过自己的 Ace Data Cloud 账号，在 AstrBot 对话中提交一次 Seedance 文生视频或单张参考图生视频任务，再用相同任务 ID 查询最终视频。插件提供 `seedance_generate_video` 和 `seedance_get_task`。
-
-**本 PR 的目标版本为 0.1.1**：新增原生帮助及管理员查询指令、双语配置和图文说明。合并和市场发布前，当前 0.1.0 安装不会自动获得这些入口。
 
 这是 **Ace Data Cloud 提供的 Seedance 独立集成**，不是 Seedance 厂商或 AstrBot 团队的官方插件。使用自己的 Ace 账号和 API Key；不要填写其他平台的密钥。
 
@@ -14,7 +14,7 @@
 
 当前上游文档（2026-10-18）：侧栏 **插件 → 顶部插件 → 插件市场 / 已安装**；旧 4.28.2 英文界面可能显示 Extensions。插件参数在已安装卡片齿轮里设置，**不要把服务插件 Key 填进模型提供商**。
 
-**发布状态（2026-10-18）：尚未在官方市场上架。** 正式发布后，先打开 [AstrBot Cloud 插件市场](https://cloud.astrbot.app/market)，搜索 **Seedance**，再核对 **Seedance by Ace Data Cloud / acedatacloud**。当前请用下面的 Git 仓地址手动安装；不要把仓库安装说成官方市场收录。
+在 [AstrBot Cloud 插件市场](https://cloud.astrbot.app/market) 搜索 **Seedance**，核对发布者 `acedatacloud`。
 
 AstrBot Cloud 官方上架尚未完成。源码已合并，可在 **Plugins → Plugins → Installed → Install Plugin (+) → Install from URL** 输入 `https://github.com/AceDataCloud/SeedanceAstrBot` 预览。URL 安装不等于官方市场安装。
 
@@ -38,11 +38,9 @@ AstrBot Cloud 官方上架尚未完成。源码已合并，可在 **Plugins → 
 
 ### 在 AstrBot 粘贴的位置
 
-打开 **插件 → 插件 → 已安装**，点击 **Seedance by Ace Data Cloud** 卡片齿轮，把 Key 填入 **Ace Data Cloud generation API key with Seedance access**（保存字段为 `api_key`）并保存。不要填 `Bearer `；也不要在聊天里输入 Key。
+打开 **插件 → 插件 → 已安装**，点击 **Seedance** 卡片齿轮，把 Key 填入 **Ace Data Cloud generation API key with Seedance access**（保存字段为 `api_key`）并保存。不要填 `Bearer `；也不要在聊天里输入 Key。
 
-![AstrBot 官方历史插件配置参考，非本插件运行截图](../_assets/tutorial/astrbot-plugin-config-reference.png)
-
-此图是 AstrBot 官方 `helloworld` 配置示例，界面标签 v3.4.14（构建 v3.4.9），不是 Ace 配置或运行证明。上方说明给出了本插件的准确字段和当前菜单；新版本布局可能不同。
+[AstrBot 官方插件配置指南](https://docs.astrbot.app/dev/star/plugin-new.html)
 
 ## 无需聊天模型的原生指令
 
@@ -97,7 +95,7 @@ Key 只发送到 `https://api.acedata.cloud`，重定向会被拒绝。插件仅
 
 官方 AstrBot `v4.28.2` 的隔离实例通过 editable 安装注册了两个工具。ChatUI 使用受支持的 `doubao-seedance-2-0-mini-260615`，以 480p、4 秒提交一次文生视频，并通过 `seedance_get_task` 查询同一 task ID，没有再次生成。最终 HTTPS MP4 为 HTTP 200、`video/mp4`；`ffprobe` 解码为 H.264、864×496、4.042 秒。生成 trace 精确匹配一条成功的 `/seedance/videos` 用量，实扣 1.404 Credits；当前成本规则计算折扣前 1.56 Credits。详见[脱敏证据](../tests/e2e-results.json)。这仍是本地 editable 安装；Cloud 审核、官方市场安装及市场安装后的首次调用尚未完成。
 
-`logo.png` 是未经修改的 200×200 [当前 Seedance 服务图标](https://cdn.acedata.cloud/9q90dl.png)，SHA-256 `6a5b07c1d33d2910eb9fe1c8549874a004d13a0e75d9b30a7cfdc255c586a83d`。
+插件使用原创的 256×256 主题图。[SVG 源文件](../_assets/artwork/logo.svg)
 
 ## 复现免费宿主检查
 

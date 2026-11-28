@@ -1,12 +1,13 @@
 name: astrbot_plugin_seedance_acedatacloud
-display_name: Seedance by Ace Data Cloud
+display_name: Seedance
 short_desc: Seedance text/image video generation and same-task retrieval through Ace Data Cloud.
 desc: >-
   Seedance text/image video generation and same-task retrieval through Ace Data Cloud. Install this Ace Data Cloud integration, configure your own API key, and use /seedance_ace for setup or the administrator-only /seedance_ace_task for an existing task. Not an official Seedance publisher plugin.
-version: 0.1.1
+version: 0.1.2
 author: acedatacloud
 repo: https://github.com/AceDataCloud/SeedanceAstrBot
 astrbot_version: ">=4.28.2,<5"
+category: integration
 tags:
   - Seedance
   - AI video

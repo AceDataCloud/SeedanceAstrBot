@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "display_name": "Seedance by Ace Data Cloud",
+    "display_name": "Seedance",
     "short_desc": "Seedance text/image video generation and same-task retrieval through Ace Data Cloud.",
     "desc": "Seedance text/image video generation and same-task retrieval through Ace Data Cloud. Configure your own Ace API key. /seedance_ace shows help; administrators use /seedance_ace_task for an existing task. This integration is provided by Ace Data Cloud."
   },

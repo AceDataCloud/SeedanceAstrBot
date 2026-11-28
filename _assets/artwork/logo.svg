@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title">
+  <title id="title">Motion film slate</title>
+  <defs>
+    <linearGradient id="background" x1="20" y1="8" x2="221" y2="242" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#173E68"/>
+      <stop offset="1" stop-color="#081E3F"/>
+    </linearGradient>
+    <linearGradient id="slate" x1="69" y1="123" x2="189" y2="201" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B0FFF3"/>
+      <stop offset="1" stop-color="#44E3D0"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="248" height="248" rx="54" fill="url(#background)"/>
+  <g fill="none" stroke="#52D8F3" stroke-linecap="round">
+    <path d="M37 135h26" stroke-width="8"/>
+    <path d="M29 151h28" stroke-width="6" opacity=".8"/>
+    <path d="M42 166h13" stroke-width="5" opacity=".55"/>
+  </g>
+  <path d="M70 113h137v66a18 18 0 0 1-18 18H89a19 19 0 0 1-19-19z" fill="#041B35" opacity=".52" transform="translate(0 6)"/>
+  <path d="M70 113h137v66a18 18 0 0 1-18 18H89a19 19 0 0 1-19-19z" fill="url(#slate)"/>
+  <path d="M71 114h136v11H71z" fill="#34BFBF"/>
+  <g transform="rotate(-13 71 112)">
+    <path d="M71 88a7 7 0 0 1 7-7h126a7 7 0 0 1 7 7v18a6 6 0 0 1-6 6H71z" fill="#D9FFF5"/>
+    <g fill="#159CAA">
+      <path d="M95 81h17l-15 31H80z"/>
+      <path d="M132 81h17l-15 31h-17z"/>
+      <path d="M169 81h17l-15 31h-17z"/>
+    </g>
+  </g>
+  <circle cx="78" cy="111" r="6" fill="#9AF7E3"/>
+  <path d="M127 139c0-3 3-5 6-3l29 17c3 2 3 6 0 8l-29 17c-3 2-6 0-6-3z" fill="#0B4760"/>
+</svg>

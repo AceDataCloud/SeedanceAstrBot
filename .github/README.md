@@ -1,10 +1,10 @@
 <!-- Generated from README.md by AceDataCloud/Index plans/plugin-readme-audit/render_channel_readmes.py. -->
 
-# Seedance for AstrBot
+# Seedance
+
+<img src="../logo.png" width="96" height="96" alt="Seedance">
 
 Submit one Seedance text or image video job in an AstrBot conversation, then query that same task for its final video URL through your own Ace Data Cloud account. The tools are `seedance_generate_video` and `seedance_get_task`.
-
-**This PR targets 0.1.1** with native help/admin lookup commands, bilingual configuration and illustrated setup. Existing 0.1.0 installations do not gain these entries until the source is merged and the package is published/updated.
 
 This independent **Seedance integration is provided by Ace Data Cloud**. It is not an official plugin from the Seedance publisher or the AstrBot team. Use your own Ace account and API key.
 
@@ -14,9 +14,9 @@ This independent **Seedance integration is provided by Ace Data Cloud**. It is n
 
 Current upstream navigation (2026-10-18): **Plugins → Plugins → Plugin Market / Installed**. The earlier tested 4.28.2 English UI may label the section Extensions. Configure this service in the installed plugin gear; **do not paste its key into model-provider settings**.
 
-**Publication status (2026-10-18): not yet listed in the official market.** After publication, open [AstrBot Cloud Plugin Market](https://cloud.astrbot.app/market), search **Seedance**, and verify **Seedance by Ace Data Cloud / acedatacloud**. For the current preview, use the repository URL below; a repository install is not official market publication.
+Search the [AstrBot Cloud plugin market](https://cloud.astrbot.app/market) for **Seedance** and check the publisher `acedatacloud`.
 
-The official AstrBot Cloud listing has not yet been published. The source release is merged; **Plugins → Plugins → Installed → Install Plugin (+) → Install from URL** with `https://github.com/AceDataCloud/SeedanceAstrBot` can preview it. A URL installation is not an official market installation.
+To install from source, enter `https://github.com/AceDataCloud/SeedanceAstrBot` under **Plugins → Installed → Install Plugin (+) → Install from URL**.
 
 ## Configure your key
 
@@ -38,11 +38,9 @@ Images reused and checked on 2026-10-18; original capture dates were not supplie
 
 ### Where to paste it in AstrBot
 
-Open **Plugins → Plugins → Installed**, select the gear on **Seedance by Ace Data Cloud**, paste the key into **Ace Data Cloud generation API key with Seedance access** (stored as `api_key`), and save. No `Bearer ` prefix; never paste the key in chat.
+Open **Plugins → Plugins → Installed**, select the gear on **Seedance**, paste the key into **Ace Data Cloud generation API key with Seedance access** (stored as `api_key`), and save. No `Bearer ` prefix; never paste the key in chat.
 
-![AstrBot official historical plugin configuration reference, not this plugin running](../_assets/tutorial/astrbot-plugin-config-reference.png)
-
-This is the official AstrBot `helloworld` configuration example, labelled v3.4.14 (build v3.4.9), not an Ace setup or run. The instructions above identify this plugin’s exact field and current navigation; later UI layouts may differ.
+[AstrBot plugin configuration guide](https://docs.astrbot.app/en/dev/star/plugin-new.html)
 
 ## Native commands without a chat model
 
@@ -97,7 +95,7 @@ The key goes only to `https://api.acedata.cloud`; redirects are rejected. The pl
 
 On official AstrBot `v4.28.2`, an isolated editable installation registered both tools. ChatUI submitted one supported `doubao-seedance-2-0-mini-260615` text video at 480p and four seconds, and later queried the same task ID through `seedance_get_task` without another generation. The terminal HTTPS MP4 responded HTTP 200, `video/mp4`; `ffprobe` decoded H.264 at 864×496 and 4.042 seconds. The exact generation trace matched a successful `/seedance/videos` usage row with 1.404 Credits deducted; the current cost rule computes 1.56 Credits before the account discount. See the [sanitized evidence](../tests/e2e-results.json). This is a local editable installation; official Cloud review, market installation, and a first call from a market installation remain open.
 
-`logo.png` is the unmodified 200×200 [current Seedance service icon](https://cdn.acedata.cloud/9q90dl.png), SHA-256 `6a5b07c1d33d2910eb9fe1c8549874a004d13a0e75d9b30a7cfdc255c586a83d`.
+The plugin includes original 256×256 artwork. [SVG source](../_assets/artwork/logo.svg)
 
 ## Reproduce the no-cost host check
 
