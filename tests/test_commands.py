@@ -80,7 +80,7 @@ async def test_help_is_local_and_never_echoes_key(loaded, monkeypatch):
     monkeypatch.setattr(client, "submit", submit)
     responses = [x async for x in plugin.seedance_ace_help(Event())]
     assert len(responses) == 1
-    assert "Seedance by Ace Data Cloud" in responses[0]
+    assert responses[0].splitlines()[0] == "Seedance"
     assert "/seedance_ace_task <task_id>" in responses[0]
     assert "configured-secret-never-echo" not in responses[0]
     assert (
